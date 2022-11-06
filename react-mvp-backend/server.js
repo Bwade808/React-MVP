@@ -18,12 +18,23 @@ app.get('/api', (req, res) => {
     })
 });
 
-app.get('/api/done/:id', (req, res) => {
-    client.query('SELECT * FROM chores WHERE ')
+app.post('/api/add', (req, res) => {
+    const chore = req.body;
+    console.log(chore);
+    client.query('INSERT INTO chores (chore, descript, allowance, isdone, freq, pers_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+    [chore.chore, chore.descript, chore.allowance, chore.isdone, chore.freq, chore.pers_id])
+    .then(result => {
+        res.send(result.rows)
+    })
 })
 
-app.get('/api/notdone/:id', (req, res) => {
-    client.query('SELECT * FROM chores WHERE ')
+app.delete('/api/delete/:id', (req, res) => {
+    const chore = req.params.id;
+    console.log(chore)
+    client.query('DELETE FROM chores WHERE id=$1 RETURNING *', [chore])
+    .then(result => {
+        res.send(result.rows)
+    })
 })
 
 

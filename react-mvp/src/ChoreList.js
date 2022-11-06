@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Chore from './Chore';
+import Header from './Header';
 
 const ChoreList = (props) => {
     let { choreData } = props;
     const [plan, setPlan] = useState(true);
-    const [completed, setCompleted] = useState(true);
-    const [remaining, setRemaining] = useState(true);
+    const [completed, setCompleted] = useState(false);
+    const [remaining, setRemaining] = useState(false);
     // console.log('chore list data', choreData)
     const onPlan = () => {
         setPlan(true);
@@ -26,22 +27,25 @@ const ChoreList = (props) => {
         console.log('remaining')
     }
   return (
-    <div className='chore-list-container'>
-        <div className='buttons'>
-            <button onClick={onPlan} id='plan' className='list-btn'>Chore Plan</button>
-            <button onClick={onCompleted} id='completed' className='list-btn'>Completed</button>
-            <button onClick={onRemaining} id='remaining' className='list-btn'>Remaining</button>
-        </div>
-        <div className='chore-list'>
-            {plan && <NotCompletedList choreData={choreData} />}
-            {completed && <CompletedList choreData={choreData} />}
-            {remaining && <RemainingList choreData={choreData} />}
-            {/* {choreData.map(chore => {
-                    return <Chore key={chore.id} choreObj={chore} />
-                })
-            } */}
+    <div>
+        <div className='chore-list-container'>
+            <div className='buttons'>
+                <button onClick={onPlan} id='plan' className='list-btn'>Chore Plan</button>
+                <button onClick={onCompleted} id='completed' className='list-btn'>Completed</button>
+                <button onClick={onRemaining} id='remaining' className='list-btn'>Remaining</button>
+            </div>
+            <div className='chore-list'>
+                {plan && <NotCompletedList choreData={choreData} />}
+                {completed && <CompletedList choreData={choreData} />}
+                {remaining && <RemainingList choreData={choreData} />}
+                {/* {choreData.map(chore => {
+                        return <Chore key={chore.id} choreObj={chore} />
+                    })
+                } */}
+            </div>
         </div>
     </div>
+    
   )
 }
 

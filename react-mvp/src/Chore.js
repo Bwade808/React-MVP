@@ -2,8 +2,8 @@ import React from 'react';
 import Options from './Options';
 
 const Chore = (props) => {
-    let { choreObj, choreData } = props
-    // console.log('chore data', {choreObj})
+    let { choreObj } = props
+
   return (
     
     <div className='chore'>
