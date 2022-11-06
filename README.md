@@ -10,6 +10,7 @@ The first thing I did was create a react app with npx create-react-app and delet
 I set up a quick route to verify everything was working and after a little bit of troubleshooting and finetuning, all three stacks were good to go!
 
 After making sure everything was communicating I started to create some of my initial components and have them render on my app.
+
 ***Currently, I can view the full plan, remaining chores, and chores that have been completed***
 
 ## Second feature
