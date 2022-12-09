@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 
 
-
+const url = 'https://chorebank-api.onrender.com';
 
 export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
     const [editInfo, setEditInfo] = useState({
@@ -27,7 +27,7 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
     }
    
     const patchFunction = () => {
-      fetch(`/api/update/${choreId}`, {
+      fetch(`${url}/api/update/${choreId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
