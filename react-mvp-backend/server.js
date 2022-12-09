@@ -16,17 +16,37 @@ app.get('/api', (req, res) => {
     .then(result => {
         res.send(result.rows)
     })
+    .catch(err => {
+        console.log(err);
+    })
 });
 
 app.post('/api/add', (req, res) => {
     const chore = req.body;
-    console.log(chore);
+    console.log('post route: ', chore);
     client.query('INSERT INTO chores (chore, descript, allowance, isdone, freq, pers_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
     [chore.chore, chore.descript, chore.allowance, chore.isdone, chore.freq, chore.pers_id])
     .then(result => {
         res.send(result.rows)
     })
-})
+    .catch(err => {
+        console.log(err);
+    })
+});
+
+app.put('/api/update/:id', (req, res) => {
+    const choreId = req.params.id;
+    const chore = req.body;
+    console.log('patch info: ', chore)
+    client.query("UPDATE chores SET chore=$1, descript=$2, allowance=$3, isdone = false, freq=$4, pers_id=1 WHERE id = $5", 
+        [chore.name, chore.description, chore.allowance, chore.freq, choreId])
+    .then(() => {
+        res.send({message: 'You have successfully updated this chore'}).status(201);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+});
 
 app.delete('/api/delete/:id', (req, res) => {
     const chore = req.params.id;
@@ -34,6 +54,9 @@ app.delete('/api/delete/:id', (req, res) => {
     client.query('DELETE FROM chores WHERE id=$1 RETURNING *', [chore])
     .then(result => {
         res.send(result.rows)
+    })
+    .catch(err => {
+        console.log(err);
     })
 })
 

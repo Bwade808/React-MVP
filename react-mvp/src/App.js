@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import ChoreList from "./ChoreList";
 import Header from "./Header";

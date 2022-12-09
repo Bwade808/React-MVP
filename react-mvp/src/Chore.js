@@ -9,10 +9,10 @@ const Chore = (props) => {
     <div className='chore'>
         <div className='chore-name'>
             <h2>{choreObj.chore}</h2> 
-            <div>{choreObj.descript}</div>
         </div>
 
         <div className='chore-options'>
+            <div>{choreObj.descript}</div>
             <Options choreData={choreObj}/>
         </div>
     </div>

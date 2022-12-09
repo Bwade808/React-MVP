@@ -34,7 +34,8 @@ const ChoreList = (props) => {
                 <button onClick={onCompleted} id='completed' className='list-btn'>Completed</button>
                 <button onClick={onRemaining} id='remaining' className='list-btn'>Remaining</button>
             </div>
-            <div className='chore-list'>
+            <div className='chore-list-container'>
+                
                 {plan && <NotCompletedList choreData={choreData} />}
                 {completed && <CompletedList choreData={choreData} />}
                 {remaining && <RemainingList choreData={choreData} />}
@@ -53,9 +54,13 @@ const NotCompletedList = (props) => {
     let { choreData } = props;
     return (
         <div className='chore-list'>
+            <div className='disclaimer'>***Disclaimer: The 'Done' checkbox functionality is currently not operational.  I'm working
+            very hard to get these bugs resolved.  Thank you for your patience.***</div>
+            <div className='note'>***Note: If you complete a chore, please use the delete button to remove it from 
+            your current list.  And parents...don't forget to pay your child!***  </div>
             {choreData.map(chore => {
             return <Chore key={chore.id} choreObj={chore} />
-        })}
+            })}
         </div>
     )
 }
@@ -68,7 +73,7 @@ const CompletedList = (props) => {
             if(chore.isdone){
                 return <Chore key={chore.id} choreObj={chore} />
             }
-        })}
+            })}
         </div>
     )
 }
