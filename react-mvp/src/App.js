@@ -10,7 +10,7 @@ import Settings from "./Settings";
 const url = "https://chorebank-api.onrender.com";
 
 function App() {
-  const [choreData, setChoreData] = useState([{}]);
+  const [choreData, setChoreData] = useState([]);
   useEffect(() => {
     fetch(`${url}/api`)
     .then(res => res.json())
