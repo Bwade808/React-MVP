@@ -3,6 +3,8 @@ import Header from './Header';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+const url = 'https://chorebank-api.onrender.com';
+
 const CreateList = () => {
     const [newChore, setNewChore] = useState({
         chore: '',
@@ -14,7 +16,7 @@ const CreateList = () => {
     })
 
     const addChore = () => {
-        fetch('/api/add', {
+        fetch(`${url}/api/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
