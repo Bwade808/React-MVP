@@ -52,7 +52,7 @@ export const Home = () => {
                 with designated dollar amounts for each chore assigned.  You can assign chores on 
                 a daily, weekly, or monthly basis.  This teaches your child work ethic and the 
                 value of money, and also teaches them accountability...in a fun way.  
-                Click <Link id='home-nav-link' to='./create'>Create </Link> to get started! 
+                Click <Link id='home-nav-link' to='/create'>Create </Link> to get started! 
             </p>
         </div>
     </div>
