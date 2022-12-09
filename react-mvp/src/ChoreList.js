@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Chore from './Chore';
+import Header from './Header';
 
 const ChoreList = (props) => {
     let { choreData } = props;
     const [plan, setPlan] = useState(true);
-    const [completed, setCompleted] = useState(true);
-    const [remaining, setRemaining] = useState(true);
+    const [completed, setCompleted] = useState(false);
+    const [remaining, setRemaining] = useState(false);
     // console.log('chore list data', choreData)
     const onPlan = () => {
         setPlan(true);
@@ -26,22 +27,26 @@ const ChoreList = (props) => {
         console.log('remaining')
     }
   return (
-    <div className='chore-list-container'>
-        <div className='buttons'>
-            <button onClick={onPlan} id='plan' className='list-btn'>Chore Plan</button>
-            <button onClick={onCompleted} id='completed' className='list-btn'>Completed</button>
-            <button onClick={onRemaining} id='remaining' className='list-btn'>Remaining</button>
-        </div>
-        <div className='chore-list'>
-            {plan && <NotCompletedList choreData={choreData} />}
-            {completed && <CompletedList choreData={choreData} />}
-            {remaining && <RemainingList choreData={choreData} />}
-            {/* {choreData.map(chore => {
-                    return <Chore key={chore.id} choreObj={chore} />
-                })
-            } */}
+    <div>
+        <div className='chore-list-container'>
+            <div className='buttons'>
+                <button onClick={onPlan} id='plan' className='list-btn'>Chore Plan</button>
+                <button onClick={onCompleted} id='completed' className='list-btn'>Completed</button>
+                <button onClick={onRemaining} id='remaining' className='list-btn'>Remaining</button>
+            </div>
+            <div className='chore-list-container'>
+                
+                {plan && <NotCompletedList choreData={choreData} />}
+                {completed && <CompletedList choreData={choreData} />}
+                {remaining && <RemainingList choreData={choreData} />}
+                {/* {choreData.map(chore => {
+                        return <Chore key={chore.id} choreObj={chore} />
+                    })
+                } */}
+            </div>
         </div>
     </div>
+    
   )
 }
 
@@ -49,9 +54,13 @@ const NotCompletedList = (props) => {
     let { choreData } = props;
     return (
         <div className='chore-list'>
+            <div className='disclaimer'>***Disclaimer: The 'Done' checkbox functionality is currently not operational.  I'm working
+            very hard to get these bugs resolved.  Thank you for your patience.***</div>
+            <div className='note'>***Note: If you complete a chore, please use the delete button to remove it from 
+            your current list.  And parents...don't forget to pay your child!***  </div>
             {choreData.map(chore => {
             return <Chore key={chore.id} choreObj={chore} />
-        })}
+            })}
         </div>
     )
 }
@@ -64,7 +73,7 @@ const CompletedList = (props) => {
             if(chore.isdone){
                 return <Chore key={chore.id} choreObj={chore} />
             }
-        })}
+            })}
         </div>
     )
 }

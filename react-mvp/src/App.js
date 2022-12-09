@@ -1,5 +1,11 @@
 import React,{useEffect, useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Routes, Route } from 'react-router-dom';
 import ChoreList from "./ChoreList";
+import Header from "./Header";
+import { Home } from "./Header";
+import CreateList from "./CreateList";
+import Settings from "./Settings";
 
 function App() {
   const [choreData, setChoreData] = useState([{}]);
@@ -11,10 +17,17 @@ function App() {
   },[choreData])
   return (
     <div className="App">
-      <ChoreList choreData={choreData} />
-      <h1>First chore is to {choreData.chore}<br />
-      Description: {choreData.descript}<br />
-      Allowance of ${choreData.allowance} on a {choreData.freq} basis</h1>
+        <Header />
+        <div className='main-container'>
+          <Routes>
+            <Route path="/plan" element={<ChoreList choreData={choreData} />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<CreateList />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
+        
     </div>
   );
 }
