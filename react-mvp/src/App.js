@@ -7,10 +7,12 @@ import { Home } from "./Header";
 import CreateList from "./CreateList";
 import Settings from "./Settings";
 
+const url = 'https://chorebank-api.onrender.com';
+
 function App() {
   const [choreData, setChoreData] = useState([{}]);
   useEffect(() => {
-    fetch('/api')
+    fetch(`${url}/api`)
     .then(res => res.json())
     .then(data => setChoreData(data))
     // console.log('test', choreData)
