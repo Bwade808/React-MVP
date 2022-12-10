@@ -7,8 +7,8 @@ import Form from 'react-bootstrap/Form';
 import App from './App' 
 
 
-// const url = 'https://chorebank-api.onrender.com';
-const url = "http://localhost:3000";
+const url = 'https://chorebank-api.onrender.com';
+// const url = "http://localhost:3000";
 
 export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
     const [editInfo, setEditInfo] = useState({
@@ -42,7 +42,6 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
       })
       console.log('edit info: ', editInfo);
       handleClose();
-      <App />
     }
   
     return (

@@ -7,8 +7,8 @@ import { Home } from "./Header";
 import CreateList from "./CreateList";
 import Settings from "./Settings";
 
-// const url = "https://chorebank-api.onrender.com";
-const url = "http://localhost:3000";
+const url = "https://chorebank-api.onrender.com";
+// const url = "http://localhost:3000";
 function App() {
 
   const [choreData, setChoreData] = useState([]);
