@@ -7,22 +7,29 @@ import { Home } from "./Header";
 import CreateList from "./CreateList";
 import Settings from "./Settings";
 
-const url = "https://chorebank-api.onrender.com";
-
+// const url = "https://chorebank-api.onrender.com";
+const url = "http://localhost:3000";
 function App() {
-  const [choreData, setChoreData] = useState([{}]);
+
+  const [choreData, setChoreData] = useState([]);
+  
+  const fetchChores = async () => {
+    const response = await fetch(`${url}/api`);
+    const newData = await response.json();
+    setChoreData(newData);
+  };
+  fetchChores();
+ 
   useEffect(() => {
-    fetch(`${url}/api`)
-    .then(res => res.json())
-    .then(data => setChoreData(data))
-    // console.log('test', choreData)
-  },[])
+    fetchChores();
+    console.log('test', choreData)
+  },[choreData.length])
   return (
     <div className="App">
         <Header />
         <div className='main-container'>
           <Routes>
-            <Route path="/plan" element={<ChoreList choreData={choreData} />} />
+            <Route path="/plan" element={<ChoreList setChoreData={setChoreData} choreData={choreData} />} />
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/create" element={<CreateList />} />

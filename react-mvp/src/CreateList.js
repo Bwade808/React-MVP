@@ -3,7 +3,8 @@ import Header from './Header';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const url = "https://chorebank-api.onrender.com";
+// const url = "https://chorebank-api.onrender.com";
+const url = "http://localhost:3000";
 
 const CreateList = () => {
     const [newChore, setNewChore] = useState({

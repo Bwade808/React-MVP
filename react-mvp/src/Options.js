@@ -3,10 +3,11 @@ import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import EditModal from './EditModal';
 
 
-const url = 'https://chorebank-api.onrender.com'; 
+// const url = 'https://chorebank-api.onrender.com'; 
+const url = "http://localhost:3000";
 
 const Options = (props) => {
-    let { choreData } = props;
+    let { choreData, setChoreData } = props;
     
     const deleteChore = (e) => {
       let choreToDelete = choreData.id;
@@ -21,6 +22,13 @@ const Options = (props) => {
         alert(`You have successfully deleted your ${choreData.chore} chore`);
         console.log('Successfully deleted', data)
       })
+        
+      const updateChores = async () => {
+        const response = await fetch(`${url}/api`);
+        const newData = await response.json();
+        setChoreData(newData);
+      };
+      updateChores();
     }
 
   return (

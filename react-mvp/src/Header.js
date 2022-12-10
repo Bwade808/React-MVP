@@ -59,63 +59,7 @@ export const Home = () => {
     )
 }
 
-// const LoggedOut = ({loggedIn, setLoggedIn, setUserPwd, userPwd, userRecords}) => {
-//     const compareUserPwd = () => {
-//         console.log('test', userRecords[userPwd.user])
-//         if(userRecords[userPwd.user] == userPwd.pwd){
-//             console.log(true);
-//             setLoggedIn(true);
-//         } else {
-//             console.log(false);
-//             alert('You have entered the wrong username & password.  Please try again')
-//         }
-//     }
-//     return(
-//     <div className='login'>
-//         {/* <form className='login-form'>
-//             <input type='text' name='user' placeholder='username...'
-//             value={userPwd.user}
-//             onChange={event => setUserPwd({...userPwd, user: event.target.value})} />
 
-//             <input id='pwd' type='password' name='pwd' placeholder='password...'
-//             value={userPwd.pwd}
-//             onChange={event => setUserPwd({...userPwd, pwd: event.target.value})} />
-
-//             <button type='submit' onClick={compareUserPwd}>Login</button>
-//         </form> */}
-//         <div className='nav-bar'>
-//             <Link id='nav-link' to='./create'>Create</Link>
-//             <Link id='nav-link' to='./plan'><FaClipboardList /></Link>
-//             <Link id='nav-link' to='./home'><FaHome /></Link>
-//             <Link id='nav-link' to='./settings'><FaCog /></Link>
-//         </div>
-//     </div>
-//     )
-// }
-
-// const LoggedIn = ({loggedIn, setLoggedIn, userPwd}) => {
-//     const logout = (e) => {
-//         e.preventDefault();
-//         if(loggedIn){
-//             setLoggedIn(false)
-//         }
-//     }
-//     return (
-//         <div className='login'>
-//             {/* <div className='welcome-back'>
-//                 <h3>Welcome Back {userPwd.user}!!!</h3>
-//                 <button type='submit' onClick={logout}>Logout</button>
-//             </div> */}
-//             <div className='nav-bar'>
-//                 <Link id='nav-link' to='./create'>Create</Link>
-//                 <Link id='nav-link' to='./plan'><FaClipboardList /></Link>
-//                 <Link id='nav-link' to='./home'><FaHome /></Link>
-//                 <Link id='nav-link' to='./settings'><FaCog /></Link>
-//             </div>
-//         </div>
-        
-//     )
-// }
 
 
 export default Header
