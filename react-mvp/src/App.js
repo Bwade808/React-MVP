@@ -20,10 +20,10 @@ function App() {
   };
   fetchChores();
  
-//   useEffect(() => {
-//     fetchChores();
-//     console.log('test', choreData)
-//   },[choreData.length])
+  useEffect(() => {
+    fetchChores();
+    console.log('test', choreData)
+  },[])
   return (
     <div className="App">
         <Header />
