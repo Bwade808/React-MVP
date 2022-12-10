@@ -42,6 +42,7 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
       })
       console.log('edit info: ', editInfo);
       handleClose();
+      window.location.reload(false);
     }
   
     return (
