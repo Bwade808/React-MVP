@@ -30,7 +30,7 @@ const CreateList = () => {
         })
     }
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         setNewChore({
             chore: '',
             descript: '',
