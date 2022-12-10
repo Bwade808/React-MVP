@@ -16,7 +16,7 @@ function App() {
     .then(res => res.json())
     .then(data => setChoreData(data))
     // console.log('test', choreData)
-  },[choreData])
+  },[])
   return (
     <div className="App">
         <Header />
