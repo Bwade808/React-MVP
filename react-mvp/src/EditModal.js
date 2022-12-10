@@ -99,7 +99,7 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={patchFunction}>
+            <Button type='submit' variant="primary" onClick={patchFunction}>
               Save Changes
             </Button>
           </Modal.Footer>
