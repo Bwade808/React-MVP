@@ -38,7 +38,7 @@ const Options = (props) => {
       <div>ChoreBucks: ${choreData.allowance}&nbsp;&#124;&nbsp;</div>
       <button className='chore-delete' type='submit' onClick={deleteChore}><FaTrashAlt />&nbsp;&nbsp;</button>
       {/* <span><FaEdit onClick={()=>{console.log('edit')}}/></span> */}
-      <div><EditModal chore={choreData.chore} descrip={choreData.descript} 
+      <div><EditModal setChoreData={setChoreData} chore={choreData.chore} descrip={choreData.descript} 
         allow={choreData.allowance} frequency={choreData.freq} choreId={choreData.id}/></div>
     </div>
   )

@@ -10,7 +10,7 @@ import App from './App'
 const url = 'https://chorebank-api.onrender.com';
 // const url = "http://localhost:3000";
 
-export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
+export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreData}) => {
     const [editInfo, setEditInfo] = useState({
       name: chore,
       description: descrip,
@@ -40,10 +40,13 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId}) => {
       .then(data => {
         console.log(data.message)
       })
-      console.log('edit info: ', editInfo);
-      handleClose();
-      
+      console.log('edit info: ', editInfo)
+      handleClose()
+      .then(fetch(`${url}/api`))
+      .then(res => res.json())
+      .then(newData => setChoreData(newData))
     }
+      
   
     return (
       <>

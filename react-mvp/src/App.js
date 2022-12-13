@@ -18,12 +18,11 @@ function App() {
     const newData = await response.json();
     setChoreData(newData);
   };
-//   fetchChores();
  
   useEffect(() => {
     fetchChores();
     console.log('test', choreData)
-  },[choreData.length])
+  },[])
   return (
     <div className="App">
         <Header />
