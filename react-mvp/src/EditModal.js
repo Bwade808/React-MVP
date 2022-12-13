@@ -41,7 +41,7 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
         console.log(data.message)
         handleClose()
       })
-      fetch(`${url}/api`))
+      fetch(`${url}/api`)
       .then(res => res.json())
       .then(newData => {
           setChoreData(newData)
