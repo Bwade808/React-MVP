@@ -28,6 +28,12 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
         setEditInfo({...editInfo, [e.target.name]: e.target.value})
     }
    
+    const reFetch = () => {
+      fetch(`${url}/api`)
+      .then(res => res.json())
+      .then(newData => setChoreData(newData))
+    };
+
     const patchFunction = () => {
       fetch(`${url}/api/update/${choreId}`, {
         method: 'PUT',
@@ -42,10 +48,8 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
       })
       console.log('edit info: ', editInfo);
       handleClose()
-      .then(fetch(`${url}/api`))
-      .then(res => res.json())
-      .then(newData => setChoreData(newData))
-    }
+      reFetch()
+    };
       
   
     return (
