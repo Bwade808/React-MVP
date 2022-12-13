@@ -45,11 +45,11 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
       .then(res => res.json())
       .then(data => {
         console.log(data.message)
+        handleClose()
+        reFetch();
       })
-      console.log('edit info: ', editInfo);
-      handleClose()
-      reFetch()
-    };
+
+
       
   
     return (

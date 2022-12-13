@@ -18,7 +18,6 @@ function App() {
     const newData = await response.json();
     setChoreData(newData);
   };
-  // fetchChores();
  
   useEffect(() => {
     fetchChores();
