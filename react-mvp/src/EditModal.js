@@ -40,7 +40,7 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
       .then(data => {
         console.log(data.message)
       })
-      console.log('edit info: ', editInfo);
+      console.log('edit info: ', editInfo)
       handleClose()
       .then(fetch(`${url}/api`))
       .then(res => res.json())

@@ -22,6 +22,7 @@ const Options = (props) => {
         alert(`You have successfully deleted your ${choreData.chore} chore`);
         console.log('Successfully deleted', data)
       })
+      
         
       // const updateChores = async () => {
       //   const response = await fetch(`${url}/api`);
