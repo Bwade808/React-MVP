@@ -48,6 +48,11 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
         handleClose()
         reFetch();
       })
+    }
+
+
+      
+
   
     return (
       <>
