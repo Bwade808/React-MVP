@@ -7,7 +7,7 @@ const url = 'https://chorebank-api.onrender.com';
 // const url = "http://localhost:3000";
 
 const Options = (props) => {
-    let { choreData, setChoreData } = props;
+    let { choreData, setChoreData, reRender, setReRender } = props;
     
     const deleteChore = () => {
       let choreToDelete = choreData.id;
@@ -21,6 +21,7 @@ const Options = (props) => {
       .then((data) => {
         alert(`You have successfully deleted your ${choreData.chore} chore`);
         console.log('Successfully deleted', data)
+        setReRender(!reRender);
       })
       
         
@@ -38,7 +39,7 @@ const Options = (props) => {
       <div>ChoreBucks: ${choreData.allowance}&nbsp;&#124;&nbsp;</div>
       <button className='chore-delete' type='submit' onClick={deleteChore}><FaTrashAlt />&nbsp;&nbsp;</button>
       {/* <span><FaEdit onClick={()=>{console.log('edit')}}/></span> */}
-      <div><EditModal setChoreData={setChoreData} chore={choreData.chore} descrip={choreData.descript} 
+      <div><EditModal reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} chore={choreData.chore} descrip={choreData.descript} 
         allow={choreData.allowance} frequency={choreData.freq} choreId={choreData.id}/></div>
     </div>
   )

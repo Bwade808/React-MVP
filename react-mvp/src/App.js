@@ -12,6 +12,7 @@ const url = "https://chorebank-api.onrender.com";
 function App() {
 
   const [choreData, setChoreData] = useState([]);
+  const [reRender, setReRender] = useState(false);
   
   const fetchChores = async () => {
     const response = await fetch(`${url}/api`);
@@ -22,16 +23,16 @@ function App() {
   useEffect(() => {
     fetchChores();
     console.log('test', choreData)
-  },[])
+  },[reRender])
   return (
     <div className="App">
         <Header />
         <div className='main-container'>
           <Routes>
-            <Route path="/plan" element={<ChoreList setChoreData={setChoreData} choreData={choreData} />} />
+            <Route path="/plan" element={<ChoreList reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} choreData={choreData} />} />
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Home />} />
-            <Route path="/create" element={<CreateList />} />
+            <Route path="/create" element={<CreateList reRender={reRender} setReRender={setReRender}/>} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
