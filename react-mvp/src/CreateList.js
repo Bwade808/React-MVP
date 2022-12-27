@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 const url = "https://chorebank-api.onrender.com";
 // const url = "http://localhost:3000";
 
-const CreateList = () => {
+const CreateList = ({reRender, setReRender}) => {
     const [newChore, setNewChore] = useState({
         chore: '',
         descript: '',
@@ -27,6 +27,7 @@ const CreateList = () => {
         .then((data) => {
             alert('Congratulations!!! You\'ve added a chore!')
             console.log('Post successful', data)
+            setReRender(!reRender);
         })
     }
     const handleSubmit = (e) => {

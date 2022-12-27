@@ -10,7 +10,7 @@ import App from './App'
 const url = 'https://chorebank-api.onrender.com';
 // const url = "http://localhost:3000";
 
-export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreData}) => {
+export const EditModal = ({chore, descrip, allow, frequency, choreId, reRender, setReRender}) => {
     const [editInfo, setEditInfo] = useState({
       name: chore,
       description: descrip,
@@ -28,11 +28,11 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
         setEditInfo({...editInfo, [e.target.name]: e.target.value})
     }
    
-    const reFetch = () => {
-      fetch(`${url}/api`)
-      .then(res => res.json())
-      .then(newData => setChoreData(newData))
-    };
+    // const reFetch = () => {
+    //   fetch(`${url}/api`)
+    //   .then(res => res.json())
+    //   .then(newData => setChoreData(newData))
+    // };
 
     const patchFunction = () => {
       fetch(`${url}/api/update/${choreId}`, {
@@ -46,7 +46,8 @@ export const EditModal = ({chore, descrip, allow, frequency, choreId, setChoreDa
       .then(data => {
         console.log(data.message)
         handleClose()
-        reFetch();
+        setReRender(!reRender);
+        console.log("Patch successful")
       })
     }
 

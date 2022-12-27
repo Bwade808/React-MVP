@@ -3,7 +3,7 @@ import Chore from './Chore';
 import Header from './Header';
 
 const ChoreList = (props) => {
-    let { choreData, setChoreData } = props;
+    let { choreData, setChoreData, reRender, setReRender } = props;
     const [plan, setPlan] = useState(true);
     const [completed, setCompleted] = useState(false);
     const [remaining, setRemaining] = useState(false);
@@ -36,9 +36,9 @@ const ChoreList = (props) => {
             </div>
             <div className='chore-list-container'>
                 
-                {plan && <NotCompletedList setChoreData={setChoreData} choreData={choreData} />}
-                {completed && <CompletedList setChoreData={setChoreData} choreData={choreData} />}
-                {remaining && <RemainingList setChoreData={setChoreData} choreData={choreData} />}
+                {plan && <NotCompletedList reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} choreData={choreData} />}
+                {completed && <CompletedList reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} choreData={choreData} />}
+                {remaining && <RemainingList reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} choreData={choreData} />}
                 {/* {choreData.map(chore => {
                         return <Chore key={chore.id} choreObj={chore} />
                     })
@@ -51,7 +51,7 @@ const ChoreList = (props) => {
 }
 
 const NotCompletedList = (props) => {
-    let { choreData, setChoreData } = props;
+    let { choreData, setChoreData, reRender, setReRender } = props;
     return (
         <div className='chore-list'>
             <div className='disclaimer'>***Disclaimer: The 'Done' checkbox functionality is currently not operational.  I'm working
@@ -59,19 +59,19 @@ const NotCompletedList = (props) => {
             <div className='note'>***Note: If you complete a chore, please use the delete button to remove it from 
             your current list.  And parents...don't forget to pay your child!***  </div>
             {choreData.map(chore => {
-            return <Chore setChoreData={setChoreData} key={chore.id} choreObj={chore} />
+            return <Chore reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} key={chore.id} choreObj={chore} />
             })}
         </div>
     )
 }
 
 const CompletedList = (props) => {
-    let { choreData, setChoreData } = props;
+    let { choreData, setChoreData, reRender, setReRender } = props;
     return (
         <div className='chore-list'>
             {choreData.map(chore => {
             if(chore.isdone){
-                return <Chore setChoreData={setChoreData} key={chore.id} choreObj={chore} />
+                return <Chore reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} key={chore.id} choreObj={chore} />
             }
             })}
         </div>
@@ -79,12 +79,12 @@ const CompletedList = (props) => {
 }
 
 const RemainingList = (props) => {
-    let { choreData, setChoreData } = props;
+    let { choreData, setChoreData, reRender, setReRender } = props;
     return (
         <div className='chore-list'>
             {choreData.map(chore => {
             if(!chore.isdone){
-                return <Chore setChoreData={setChoreData} key={chore.id} choreObj={chore} />
+                return <Chore reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} key={chore.id} choreObj={chore} />
             }
         })}
         </div>

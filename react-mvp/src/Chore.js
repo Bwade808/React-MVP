@@ -2,7 +2,7 @@ import React from 'react';
 import Options from './Options';
 
 const Chore = (props) => {
-    let { choreObj, setChoreData } = props
+    let { choreObj, setChoreData, reRender, setReRender } = props
 
   return (
     
@@ -13,7 +13,7 @@ const Chore = (props) => {
 
         <div className='chore-options'>
             <div>{choreObj.descript}</div>
-            <Options setChoreData={setChoreData} choreData={choreObj}/>
+            <Options reRender={reRender} setReRender={setReRender} setChoreData={setChoreData} choreData={choreObj}/>
         </div>
     </div>
   )
